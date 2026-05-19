@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>💖 Our Story</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background: linear-gradient(135deg,#ff4d6d,#ff758c,#ffb3c1);
+  overflow-x:hidden;
+}
+
+/* صفحات */
+.page{
+  display:none;
+  padding:40px;
+  min-height:100vh;
+}
+
+.page.active{
+  display:block;
+}
+
+/* زرار */
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  margin-top:20px;
+  cursor:pointer;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+}
+
+/* صور */
+img{
+  width:220px;
+  margin:10px;
+  border-radius:15px;
+}
+
+/* فيديو */
+video{
+  width:260px;
+  margin:10px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* العداد */
+.count{
+  font-size:22px;
+  margin-top:20px;
+  line-height:2;
+}
+
+/* ❤️ قلوب */
+.heart{
+  position:fixed;
+  top:-10px;
+  color:#ff2d55;
+  font-size:20px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10px); opacity:1;}
+  100%{transform:translateY(110vh); opacity:0;}
+}
+
+/* مربع الحب */
+.box{
+  background:rgba(255,255,255,0.15);
+  padding:20px;
+  border-radius:15px;
+  margin:20px auto;
+  width:80%;
+  font-size:22px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🏠 الصفحة الأولى -->
+<div id="home" class="page active">
+  <h1>💖 Our Story</h1>
+
+  <p>ادخلي 😡</p>
+
+  <p onclick="go('day1095')" style="cursor:pointer;font-weight:bold;">
+    بقولك اضغطي هنا 👈
+  </p>
+</div>
+
+<!-- 💘 -->
+<div id="day1095" class="page">
+  <h1>1095 يوم 💖</h1>
+
+  <button onclick="go('msg')">كملي 💌</button>
+</div>
+
+<!-- 💌 الرسالة -->
+<div id="msg" class="page">
+
+  <h2>💌 رسالة ليكي</h2>
+
+  <div id="typing"></div>
+
+  <button onclick="go('pics')">عايزة تشوفي القمر؟ 😏</button>
+</div>
+
+<!-- 📸 الصور + الفيديو -->
+<div id="pics" class="page">
+
+  <h2>📸 شوفتيه؟ 😏</h2>
+
+  <img src="https://i.ibb.co/1YVZwMXY/Screenshot.jpg">
+  <img src="https://i.ibb.co/7t3kqfdR/IMG-3503.jpg">
+  <img src="https://i.ibb.co/5gfKpdPR/IMG-3509.jpg">
+  <img src="https://i.ibb.co/nsDh5vdh/IMG-3504.jpg">
+
+  <h3>فرط حركة 😂💕</h3>
+
+  <video controls>
+    <source src="https://www.image2url.com/r2/default/videos/1779159696291-6a647d31-8ef2-41ed-a4d7-90cc52647472.mp4" type="video/mp4">
+  </video>
+
+  <button onclick="go('countPage')">كملي يكوتي 😂💕</button>
+
+</div>
+
+<!-- ⏳ صفحة العداد -->
+<div id="countPage" class="page">
+
+  <div class="count" id="counter"></div>
+
+  <button onclick="go('lovePage')">آخر مره 😂😘</button>
+
+</div>
+
+<!-- 💖 صفحة الحب -->
+<div id="lovePage" class="page">
+
+  <div class="box">بحبك ❤️</div>
+
+  <div class="box">
+    <p>🎵 شغلي الأغنية 😂💕</p>
+    <audio controls>
+      <source src="https://pdftourl.net/audio/1779158094808-84e5b85e-af36-4c63-bfc6-97bb9472fa9a.m4a">
+    </audio>
+  </div>
+
+  <div class="box" onclick="go('home')" style="cursor:pointer;">
+    باي ينور عيني 🫂
+  </div>
+
+</div>
+
+<script>
+
+/* التنقل */
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  if(id === "msg"){
+    typeWriter();
+  }
+
+  if(id === "countPage"){
+    startCounter();
+  }
+}
+
+/* الرسالة */
+let text = `بمناسبة إن لسه يوم واحد ونكمل 3 سنين من أول يوم اتكلمنا مع بعض ❤️
+
+عايز أقولك إني بحبك أوي يا كل حياتي، وحقك عليا في أي حاجة زعلتك مني.
+
+إنتي حبي الوحيد والأول والأخير وكل حاجة ليا، وأغلى وأحلى إنسانة في الدنيا والله.
+
+بحبك أوي ومحبّتش غيرك ولا عمري هحب قدك.
+
+وحقك عليا ف أي حاجه زعلتك مني او ف يوم بعدت عنك بس انتي عارفه ان غصب عني واني مقدرش ازعلك او اعيش من غيرك.
+
+مفيش كلام يوصفك بس أنا فخور بيكي اوي وعارف انك مريتي بحاجات وأيام صعبه كتير بس انتي طول عمرك قدها وهتفضلي قد اي حاجه.
+
+وانا فخور انك ف حياتي واحلي حاجه حصلتلي ف حياتي وبحبك ومش عايزك تزعلي مني.
+
+وانتي بجد مفيش أجمل منك ف الدنيا عشان انتي أجمل كل حاجه واي حد وكل حياتي.
+
+ولا قابلت ولا عمري هقابل شخص زيك يبختي بيكي ❤️
+
+وأسف ع كل حاجه عملتها معاكي، واحنا مفيش زعل بينا طبعا عشان احنا واحد يا عجلة 😂💘😍
+
+وان شاء الله السنه الجايه تكوني لابسه دبلتي يا روحي 💍😍`;
+
+let i = 0;
+
+function typeWriter(){
+  document.getElementById("typing").innerHTML = "";
+  i = 0;
+  write();
+}
+
+function write(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(write, 30);
+  }
+}
+
+/* العداد */
+function startCounter(){
+  const startDate = new Date("2023-05-20T00:00:00");
+
+  setInterval(()=>{
+    let now = new Date();
+    let diff = now - startDate;
+
+    let seconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
+
+    let remHours = hours % 24;
+    let remMinutes = minutes % 60;
+    let remSeconds = seconds % 60;
+
+    document.getElementById("counter").innerHTML =
+      `${days} يوم 💖<br>
+       ${remHours} ساعة ⏰<br>
+       ${remMinutes} دقيقة 💕<br>
+       ${remSeconds} ثانية 💘`;
+  }, 1000);
+}
+
+/* ❤️ قلوب */
+setInterval(()=>{
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (10 + Math.random()*20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(), 5000);
+}, 300);
+
+</script>
+
+</body>
+</html>
